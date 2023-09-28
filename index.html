@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <title>Приложение с поиском фото</title>
     <style>
         /* CSS стили здесь */
@@ -16,91 +17,14 @@
     </header>
     <main>
         <div id="photoContainer">
-            <!-- Фото будут отображаться здесь -->
+
         </div>
     </main>
     <footer>
-        <a href="https://github.com/4Sicor42" target="_blank">GitHub автора приложения</a>
+        <a href="https://github.com/4Sicor42" target="_blank">GitHub</a>
         <span id="year">2023</span>
     </footer>
 
-    <script>
-        const searchInput = document.getElementById("searchInput");
-        const searchButton = document.getElementById("searchButton");
-        const photoContainer = document.getElementById("photoContainer");
-
-        // Функция для отображения фото
-        function displayPhotos(photos) {
-            photoContainer.innerHTML = ""; // Очистить предыдущие фото
-
-            photos.forEach(photo => {
-                const photoDiv = document.createElement("div");
-                photoDiv.classList.add("photo");
-
-                const img = document.createElement("img");
-                img.src = photo.url;
-                img.alt = photo.description;
-
-                const description = document.createElement("p");
-                description.textContent = photo.description;
-
-                // Добавьте другие поля на ваше усмотрение
-
-                photoDiv.appendChild(img);
-                photoDiv.appendChild(description);
-                photoContainer.appendChild(photoDiv);
-            });
-        }
-
-        // Функция для выполнения поискового запроса
-        function searchPhotos() {
-            const query = searchInput.value;
-
-            // Здесь выполните запрос к API для поиска фото по заданному запросу
-            // После получения результатов вызовите функцию displayPhotos с результатами
-
-            // Пример использования фейковых данных:
-            const fakeData = [
-                { url: "url1.jpg", description: "Описание 1" },
-                { url: "url2.jpg", description: "Описание 2" },
-            ];
-
-            displayPhotos(fakeData);
-        }
-
-        // Обработчик события для кнопки поиска
-        searchButton.addEventListener("click", searchPhotos);
-
-        // Обработчик события для клавиши Enter
-        searchInput.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                searchPhotos();
-            }
-        });
-
-        // Обработчик события для очистки поля ввода
-        searchInput.addEventListener("input", function() {
-            const inputValue = searchInput.value;
-
-            if (inputValue) {
-                // Если есть текст в поле ввода, показать крестик
-                searchInput.classList.add("hasValue");
-            } else {
-                // Если поле ввода пустое, скрыть крестик и вернуть placeholder
-                searchInput.classList.remove("hasValue");
-            }
-        });
-
-        // Обработчик события для удаления текста по клику на крестик
-        searchInput.addEventListener("click", function() {
-            searchInput.value = "";
-            searchInput.classList.remove("hasValue");
-        });
-
-        // Устанавливаем фокус на поле ввода при загрузке страницы
-        window.addEventListener("load", function() {
-            searchInput.focus();
-        });
-    </script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
