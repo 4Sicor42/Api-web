@@ -27,7 +27,7 @@
         // Функция для выполнения поискового запроса
         function searchPhotos() {
             const query = searchInput.value;
-            const apiKey = 'PEN13SceLN2Kkv6xXMzwaarzcuSZdS9oGkkluF1IvSA'; // Замените на ваш ключ API Unsplash
+            const apiKey = 'PEN13SceLN2Kkv6xXMzwaarzcuSZdS9oGkkluF1IvSA';
             const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=10&client_id=${apiKey}`;
 
             // Очистить предыдущие фотографии

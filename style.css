@@ -79,17 +79,3 @@ a {
     text-decoration: none;
 }
 
-/* Стили для поля ввода с текстом и крестиком */
-#searchInput {
-    position: relative;
-}
-
-#searchInput.hasValue {
-    background-image: url('cross.png'); /* Путь к изображению крестика */
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 30px; /* Размер для крестика */
-    
-}
-
-/* Дополнительные стили можно добавить по вашему желанию */
