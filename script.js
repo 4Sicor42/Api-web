@@ -56,6 +56,26 @@
             }
         });
 
+
+        // Обработчик события для очистки поля ввода
+        searchInput.addEventListener("input", function() {
+            const inputValue = searchInput.value;
+
+            if (inputValue) {
+                // Если есть текст в поле ввода, показать крестик
+                searchInput.classList.add("hasValue");
+            } else {
+                // Если поле ввода пустое, скрыть крестик и вернуть placeholder
+                searchInput.classList.remove("hasValue");
+            }
+        });
+
+        // Обработчик события для удаления текста по клику на крестик
+        searchInput.addEventListener("click", function() {
+            searchInput.value = "";
+            searchInput.classList.remove("hasValue");
+        });
+
         
 
         // Устанавливаем фокус на поле ввода при загрузке страницы
