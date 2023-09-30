@@ -29,20 +29,45 @@
             const query = searchInput.value;
             const apiKey = 'PEN13SceLN2Kkv6xXMzwaarzcuSZdS9oGkkluF1IvSA';
             const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=10&client_id=${apiKey}`;
+            const apiRnd = `https://api.unsplash.com/photos/random?client_id=${apiKey}`;
 
             // Очистить предыдущие фотографии
             photoContainer.innerHTML = "";
 
             // Выполнить GET-запрос к API
+            if(apiUrl !== `https://api.unsplash.com/search/photos?query=&per_page=10&client_id=${apiKey}`){
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
                     const photos = data.results;
+                    if(photos.lenght !=0){
                     displayPhotos(photos);
+                    }
+                    else{
+                        const photoDiv = document.createElement("div");
+                        const description = document.createElement("p");
+                        description.textContent = "No photos found.";
+                        photoDiv.appendChild(description);
+                        photoContainer.appendChild(photoDiv);
+                    }
                 })
                 .catch(error => {
                     console.error('Ошибка при выполнении запроса к API:', error);
                 });
+            }
+            else{
+                fetch(apiRnd)
+                .then(response => response.json())
+                .then(data => {
+                    const photos1 = data.results;
+                    displayPhotos(photos1);
+                    console.log(photos1.lenght);
+
+                })
+                .catch(error => {
+                    console.error('Ошибка при выполнении запроса к API:', error);
+                });
+            }
         }
 
 
