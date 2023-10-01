@@ -29,7 +29,7 @@
             const query = searchInput.value;
             const apiKey = 'PEN13SceLN2Kkv6xXMzwaarzcuSZdS9oGkkluF1IvSA';
             const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=10&client_id=${apiKey}`;
-            const apiRnd = `https://api.unsplash.com/photos/random?client_id=${apiKey}`;
+            const apiRnd = `https://api.unsplash.com/photos/random?count=10&client_id=${apiKey}`;
 
             // Очистить предыдущие фотографии
             photoContainer.innerHTML = "";
@@ -40,7 +40,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const photos = data.results;
-                    if(photos.lenght !=0){
+                    if(photos.length  !=0){
                     displayPhotos(photos);
                     }
                     else{
@@ -59,9 +59,9 @@
                 fetch(apiRnd)
                 .then(response => response.json())
                 .then(data => {
-                    const photos1 = data.results;
-                    displayPhotos(photos1);
-                    console.log(photos1.lenght);
+                    const photos = data;
+                    displayPhotos(photos);
+                    
 
                 })
                 .catch(error => {
